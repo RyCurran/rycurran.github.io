@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Ryan Curran</title>
+	<title>RScard</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/ico" href="img/favicon.png"/>
@@ -36,7 +36,7 @@
 
 	<!-- Modernizer for detect what features the user�s browser has to offer -->
 	<script type="text/javascript" src="js/libs/modernizr.js"></script>
-
+	
 	<!-- Google RreCaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
@@ -45,7 +45,7 @@
 
     <div class="mobile-nav">
         <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
-
+		
         <div class="mobile-nav-inner">
             <nav id="mobile-nav" class="nav">
 				<ul class="clearfix">
@@ -131,7 +131,7 @@
 					<span class="btn-outer btn-primary-outer ripple">
 						<input class="contact-submit btn btn-lg btn-primary" type="submit" value="Send"/>
 					</span>
-
+					
 					<div class="contact-response"></div>
 				</form>
             </aside><!-- .widget_contact -->
@@ -217,11 +217,11 @@
     <div class="wrapper">
         <header class="header">
 			<div class="head-bg" style="background-image: url('img/uploads/rs-cover.jpg')"></div>
-
+			
             <div class="head-bar">
                 <div class="head-bar-inner">
                     <div class="row">
-                        <div class="col-sm-3 col-xs-6">
+                        <div class="col-sm-3 col-xs-6">                            
                             <a class="logo" href="index.html"><span>RS</span>card</a>
 							<!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
                         </div>
@@ -266,14 +266,14 @@
 
         <div class="content">
             <div class="container">
-
+						
 			<!-- START: PAGE CONTENT -->
-			<?php require_once __DIR__ . '/php/recaptcha/autoload.php';
+			<?php require_once __DIR__ . '/php/recaptcha/autoload.php';				
 				$siteKey = ''; // visit https://www.google.com/recaptcha/admin to generate keys
 				$secret = '';
 				$lang = 'en'; // reCAPTCHA supported 40+ languages listed here: https://developers.google.com/recaptcha/docs/language
 			?>
-
+			
 			<section class="section section-text text-center">
 				<div class="animate-up animated">
 					<h2 class="section-title">You're not a bot? Aren't you?</h2>
@@ -290,13 +290,13 @@
 					elseif (isset($_POST['g-recaptcha-response'])):
 						$recaptcha = new \ReCaptcha\ReCaptcha($secret);
 						$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-						if ($resp->isSuccess()):
+						if ($resp->isSuccess()):					
 						// If the response is a success, that's it!
 							?>
 							<h3>Congratulation!</h3>
 							<p>Your email was sent successfully! <a href="index.html">Go Back</a></p>
 							<?php
-
+							
 							require_once __DIR__ . '/php/mailsender.php';
 						else:
 						// If it's not successful, then one or more error codes will be returned.
@@ -312,13 +312,13 @@
 							<input type="hidden" value="<?php echo $_POST['rsName'];?>" name="rsName">
 							<input type="hidden" value="<?php echo $_POST['rsEmail'];?>" name="rsEmail">
 							<input type="hidden" value="<?php echo $_POST['rsSubject'];?>" name="rsSubject">
-							<input type="hidden" value="<?php echo $_POST['rsMessage'];?>" name="rsMessage">
-
+							<input type="hidden" value="<?php echo $_POST['rsMessage'];?>" name="rsMessage">						                        				
+							
 							<div class="input-field">
 								<div class="g-recaptcha " data-sitekey="<?php echo $siteKey; ?>"></div>
 								<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang; ?>"></script>
-							</div>
-							<input type="submit" class="btn btn-lg btn-primary" value="Submit" />
+							</div>							
+							<input type="submit" class="btn btn-lg btn-primary" value="Submit" />	
 						</span>
 						</form>
 					<?php endif; ?>
@@ -326,7 +326,7 @@
 				</div>
 			</section>
 			<!-- END: PAGE CONTENT -->
-
+			                
             </div><!-- .container -->
         </div><!-- .content -->
 
@@ -343,7 +343,7 @@
             </div>
         </footer><!-- .footer -->
     </div><!-- .wrapper -->
-
+	
 	<a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
     <div id="overlay"></div>
     <div id="preloader">
@@ -366,7 +366,7 @@
     <script type="text/javascript" src="js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
     <script type="text/javascript" src="js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="js/options.js"></script>
+    <script type="text/javascript" src="js/options.js"></script>	
     <script type="text/javascript" src="js/site.min.js"></script>
 </body>
 </html>
